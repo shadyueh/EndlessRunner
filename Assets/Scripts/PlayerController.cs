@@ -28,11 +28,18 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         direction.z = forwardSpeed;
-        direction.y += gravity * Time.deltaTime;
 
-        if (controller.isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
+        if (controller.isGrounded)
         {
-            Jump();
+            direction.y = -1;
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                Jump();
+            }
+        }
+        else
+        {
+            direction.y += gravity * Time.deltaTime;
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
