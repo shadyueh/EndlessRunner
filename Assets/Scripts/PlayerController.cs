@@ -9,6 +9,11 @@ public class PlayerController : MonoBehaviour
     private Vector3 direction;
     public float forwardSpeed;
 
+    private int desiredLane = 1; // 0 - left, 1 - middle, 2 - right
+    public float laneDistance = 4;
+
+    private Vector3 targetPosition;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +24,34 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         direction.z = forwardSpeed;
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            desiredLane++;
+            if (desiredLane > 2)
+            {
+                desiredLane = 2;
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            desiredLane--;
+            if (desiredLane < 0)
+            {
+                desiredLane = 0;
+            }
+        }
+        targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
+
+        if (desiredLane==0)
+        {
+            targetPosition += Vector3.left * laneDistance;
+        }
+        else if (desiredLane == 2)
+        {
+            targetPosition += Vector3.right * laneDistance;
+        }
+
+        transform.position = targetPosition;
     }
 
     private void FixedUpdate()
