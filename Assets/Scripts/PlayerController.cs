@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using UnityEngine;
@@ -12,8 +13,10 @@ public class PlayerController : MonoBehaviour
 
     private int desiredLane = 1; // 0 - left, 1 - middle, 2 - right
     public float laneDistance = 4;
-
     private Vector3 targetPosition;
+
+    public float jumpForce;
+    public float gravity;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +28,13 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         direction.z = forwardSpeed;
+        direction.y += gravity * Time.deltaTime;
+
+        if (controller.isGrounded && Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Jump();
+        }
+
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             desiredLane++;
@@ -33,6 +43,7 @@ public class PlayerController : MonoBehaviour
                 desiredLane = 2;
             }
         }
+        
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             desiredLane--;
@@ -41,6 +52,7 @@ public class PlayerController : MonoBehaviour
                 desiredLane = 0;
             }
         }
+
         targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
 
         if (desiredLane ==0)
@@ -54,9 +66,14 @@ public class PlayerController : MonoBehaviour
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, lerpSmooth * Time.fixedDeltaTime);
     }
-
+    
     private void FixedUpdate()
     {
         controller.Move(direction * Time.fixedDeltaTime);
+    }
+
+    private void Jump()
+    {
+        direction.y = jumpForce;
     }
 }

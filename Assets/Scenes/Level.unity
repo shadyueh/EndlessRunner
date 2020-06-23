@@ -532,3 +532,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forwardSpeed: 4
   laneDistance: 2.5
+  jumpForce: 10
+  gravity: -20
