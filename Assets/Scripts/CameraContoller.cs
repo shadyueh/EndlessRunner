@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraContoller : MonoBehaviour
 {
-
+    private const int lerpSmooth = 10;
     public Transform player;
     private Vector3 offset;
 
@@ -17,9 +17,9 @@ public class CameraContoller : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         newPosition = new Vector3(transform.position.x, transform.position.y, offset.z + player.position.z);
-        transform.position = newPosition;
+        transform.position = Vector3.Lerp(transform.position, newPosition, lerpSmooth * Time.deltaTime);
     }
 }
