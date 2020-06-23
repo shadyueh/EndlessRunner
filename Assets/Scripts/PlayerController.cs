@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private const int lerpSmooth = 80;
     private CharacterController controller;
     private Vector3 direction;
     public float forwardSpeed;
@@ -42,7 +43,7 @@ public class PlayerController : MonoBehaviour
         }
         targetPosition = transform.position.z * transform.forward + transform.position.y * transform.up;
 
-        if (desiredLane==0)
+        if (desiredLane ==0)
         {
             targetPosition += Vector3.left * laneDistance;
         }
@@ -51,7 +52,7 @@ public class PlayerController : MonoBehaviour
             targetPosition += Vector3.right * laneDistance;
         }
 
-        transform.position = targetPosition;
+        transform.position = Vector3.Lerp(transform.position, targetPosition, lerpSmooth * Time.fixedDeltaTime);
     }
 
     private void FixedUpdate()
