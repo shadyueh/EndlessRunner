@@ -11,6 +11,8 @@ public class TileManager : MonoBehaviour
     public int numberOfFiles = 5;
     public Transform player;
 
+    private List<GameObject> activeTiles = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,16 +33,24 @@ public class TileManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.transform.position.z > zSpawn - (numberOfFiles * tileLength))
+        if(player.transform.position.z - tileLength > zSpawn - (numberOfFiles * tileLength))
         {
             SpawnTile(Random.Range(0, tilePrefabs.Length));
+            DeleteTile();
         }
     }
 
     public void SpawnTile(int tileIndex)
     {
-        Instantiate(tilePrefabs[tileIndex], transform.forward * zSpawn, transform.rotation);
+        GameObject go = Instantiate(tilePrefabs[tileIndex], transform.forward * zSpawn, transform.rotation);
+        activeTiles.Add(go);
         zSpawn += tileLength;
+    }
+
+    public void DeleteTile()
+    {
+        Destroy(activeTiles[0]);
+        activeTiles.RemoveAt(0);
     }
 
 }
