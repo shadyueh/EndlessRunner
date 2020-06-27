@@ -442,6 +442,8 @@ MonoBehaviour:
   - {fileID: 3148916977967586616, guid: 2a8a9c9ce257bf843803add69641bd6b, type: 3}
   zSpawn: 0
   tileLength: 31.5
+  numberOfFiles: 5
+  player: {fileID: 1260921903}
 --- !u!4 &1129174566
 Transform:
   m_ObjectHideFlags: 0
