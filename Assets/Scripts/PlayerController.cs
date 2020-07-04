@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!PlayerManager.isGameStarted)
+            return;
+
         direction.z = forwardSpeed;
 
         if (controller.isGrounded)
@@ -41,6 +44,9 @@ public class PlayerController : MonoBehaviour
         {
             direction.y += gravity * Time.deltaTime;
         }
+
+        Debug.Log(controller.isGrounded);
+
 
         if (SwipeManager.swipeRight)
         {
@@ -89,6 +95,8 @@ public class PlayerController : MonoBehaviour
     
     private void FixedUpdate()
     {
+        if (!PlayerManager.isGameStarted)
+            return;
         controller.Move(direction * Time.fixedDeltaTime);
     }
 
