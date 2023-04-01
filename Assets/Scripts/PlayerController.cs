@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     private const int laneSwitchSpeed = 25;
     private CharacterController controller;
+    private Animator animator;
     private Vector3 direction;
     public float forwardSpeed;
 
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController> ();
+        animator = GetComponent<Animator> ();
     }
 
     // Update is called once per frame
@@ -31,9 +33,11 @@ public class PlayerController : MonoBehaviour
             return;
 
         direction.z = forwardSpeed;
+        animator.SetBool("isRunning", true);
 
         if (controller.isGrounded)
         {
+            animator.SetBool("isAirbone",false);
             direction.y = -1;
             if (SwipeManager.swipeUp)
             {
@@ -103,6 +107,7 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
         direction.y = jumpForce;
+        animator.SetBool("isAirbone", true);
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)

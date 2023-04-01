@@ -998,7 +998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c7a0f1bfadf0b04b8fba4fed737932b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1260921903}
+  player: {fileID: 1489802230}
 --- !u!1 &1129174564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,7 +1038,7 @@ MonoBehaviour:
   zSpawn: 0
   tileLength: 31.5
   numberOfFiles: 5
-  player: {fileID: 1260921903}
+  player: {fileID: 1489802230}
 --- !u!4 &1129174566
 Transform:
   m_ObjectHideFlags: 0
@@ -1343,6 +1343,16 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: ee2dc8e10fdfde340b67207f849692f5,
+        type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: ee2dc8e10fdfde340b67207f849692f5, type: 3}
+    - target: {fileID: -6057140222963153312, guid: ee2dc8e10fdfde340b67207f849692f5,
+        type: 3}
+      propertyPath: m_CullingMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ee2dc8e10fdfde340b67207f849692f5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1351,7 +1361,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: ee2dc8e10fdfde340b67207f849692f5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.47
+      value: 0.93
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ee2dc8e10fdfde340b67207f849692f5,
         type: 3}
@@ -1455,6 +1465,12 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0.83, z: 0}
+--- !u!4 &1489802230 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: ee2dc8e10fdfde340b67207f849692f5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1489802225}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1532040240
 GameObject:
   m_ObjectHideFlags: 0
