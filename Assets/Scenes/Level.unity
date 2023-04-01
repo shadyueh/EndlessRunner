@@ -1074,7 +1074,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1260921900
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1333,6 +1333,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6057140222963153312, guid: ee2dc8e10fdfde340b67207f849692f5,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 212797bdd69727e49807f0b045907528, type: 2}
+    - target: {fileID: -6057140222963153312, guid: ee2dc8e10fdfde340b67207f849692f5,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ee2dc8e10fdfde340b67207f849692f5,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1396,7 +1406,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: ee2dc8e10fdfde340b67207f849692f5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -396677188899151970, guid: ee2dc8e10fdfde340b67207f849692f5,
         type: 3}
